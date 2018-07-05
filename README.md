@@ -4,7 +4,7 @@ It is an OpenCV based project to detect the motion. It has a security add-on to 
 
 # Object Detection :
 
-![alt text](https://github.com/Mausam-Sharma/surveillance_system_by_object_detection-/blob/master/p2.JPG)
+![alt text](https://github.com/Mausam-Sharma/surveillance_system_by_object_detection-/blob/master/p2.jpg)
 
 # email alert :
 
@@ -12,8 +12,8 @@ It is an OpenCV based project to detect the motion. It has a security add-on to 
 
 # sms alert
 
-![alt text](https://github.com/Mausam-Sharma/surveillance_system_by_object_detection-/blob/master/p3.JPG)
+![alt text](https://github.com/Mausam-Sharma/surveillance_system_by_object_detection-/blob/master/p3.png)
 
 # labels detected in the frame
 
-![alt text](https://github.com/Mausam-Sharma/surveillance_system_by_object_detection-/blob/master/p4.JPG)
+![alt text](https://github.com/Mausam-Sharma/surveillance_system_by_object_detection-/blob/master/p4.jpg)
