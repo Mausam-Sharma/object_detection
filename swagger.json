@@ -1,0 +1,3668 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "2018-07-18T09:13:04Z",
+    "title": "test-pymnt-apis",
+    "x-logo": {
+      "url": "http://pymnt-us-app.com.s3-website-us-east-1.amazonaws.com/static/media/payment.b9fe55ff.png",
+      "backgroundColor": "#FFFFFF"
+    }
+  },
+  "host": "nfx91gwf2h.execute-api.us-east-1.amazonaws.com",
+  "basePath": "/test",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/accounts": {
+      "post": {
+        "summary": "Add Accounts",
+        "description": "This API is used to add  Accounts",
+        "x-code-samples": [
+          {
+            "lang": "Javascript",
+            "source":"let account = new Merchant()\n account.ID = uuid() \n account.NAME = John  ;\n account.CREATED_DATE = current timestamp;\n account.LAST_UPDATED = current timestamp;account.CREATED_DATE = current timestamp;\n account.DESCRIPTION = data.description; \n try{ let response = account.put() \n  // 200 Successfull  }\n catch \n {  // ERROR  }" 
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "addMerchantAccount",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/addMerchantAccount"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfull",
+            "schema": {
+              "$ref": "#/definitions/postPrefResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "552": {
+            "description": "Resource Not Authorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "553": {
+            "description": "Resource Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "1_FseAPMsLh": []
+          },
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/accounts/{MID}": {
+      "get": {
+        "summary": "Get Accounts",
+        "description": "This API is used to get Accounts",
+        "x-code-samples": [
+          {
+            "lang": "Javascript",
+            "source": "cut for brevity"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "MID",
+            "in": "path",
+            "description": "Merchant ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "all",
+              "address",
+              "gateway",
+              "pref"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfull",
+            "schema": {
+              "$ref": "#/definitions/getAccounts"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "552": {
+            "description": "Resource Not Authorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "553": {
+            "description": "Resource Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "1_FseAPMsLh": []
+          },
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/accounts/{MID}/address": {
+      "post": {
+        "summary": "Add Addresses",
+        "description": "This API is used to add a Addresses",
+        "x-code-samples": [
+          {
+            "lang": "Javascript",
+            "source": "cut for brevity"
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "MID",
+            "in": "path",
+            "description": "Merchant ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "addMerchantAddress",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/addMerchantAddress"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfull",
+            "schema": {
+              "$ref": "#/definitions/postAddressResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "552": {
+            "description": "Resource Not Authorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "553": {
+            "description": "Resource Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "1_FseAPMsLh": []
+          },
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/accounts/{MID}/gateway": {
+      "post": {
+        "summary": "Add Gateway",
+        "description": "This API is used to add a Gateway",
+        "x-code-samples": [
+          {
+            "lang": "Javascript",
+            "source": "cut for brevity"
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "MID",
+            "in": "path",
+            "description": "Merchant ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "postGateway",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/postGateway"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfull",
+            "schema": {
+              "$ref": "#/definitions/postGatewayResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "553": {
+            "description": "Resource Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "555": {
+            "description": "555 response",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "1_FseAPMsLh": []
+          },
+          {
+            "api_key": []
+          }
+        ]
+      },
+      "put": {
+        "summary": "Update Gateway",
+        "description": "This API is used to Update Gateway",
+        "x-code-samples": [
+          {
+            "lang": "Javascript",
+            "source": "cut for brevity"
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "MID",
+            "in": "path",
+            "description": "Merchant ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "updateGateway",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/updateGateway"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfull",
+            "schema": {
+              "$ref": "#/definitions/postGatewayResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "553": {
+            "description": "Resource Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "555": {
+            "description": "555 response",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "1_FseAPMsLh": []
+          },
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/accounts/{MID}/pref": {
+      "get": {
+        "summary": "Add Preferences",
+        "x-code-samples": [
+          {
+            "lang": "Javascript",
+            "source": "cut for brevity"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "MID",
+            "in": "path",
+            "description": "Merchant ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "path",
+            "description": "expand may be equals to all/trans/total/avg",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "all",
+              "trans",
+              "total",
+              "avg"
+            ]
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "start_date",
+              "end_date",
+              "customer_ids"
+            ]
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfull",
+            "schema": {
+              "$ref": "#/definitions/getTransactionByPref"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "552": {
+            "description": "Resource Not Authorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "553": {
+            "description": "Resource Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "1_FseAPMsLh": []
+          },
+          {
+            "api_key": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "Add Preferences",
+        "description": "This API is used to add  Preferences",
+        "x-code-samples": [
+          {
+            "lang": "Javascript",
+            "source": "cut for brevity"
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "MID",
+            "in": "path",
+            "description": "Merchant ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "addMerchantPreferences",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/addMerchantPreferences"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfull",
+            "schema": {
+              "$ref": "#/definitions/postPrefResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "552": {
+            "description": "Resource Not Authorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "553": {
+            "description": "Resource Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "1_FseAPMsLh": []
+          },
+          {
+            "api_key": []
+          }
+        ]
+      },
+      "put": {
+        "summary": "Update Preferences",
+        "description": "This API is used to Update Preferences",
+        "x-code-samples": [
+          {
+            "lang": "Javascript",
+            "source": "cut for brevity"
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "MID",
+            "in": "path",
+            "description": "Merchant ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "updatePreferences",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/updatePreferences"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfull",
+            "schema": {
+              "$ref": "#/definitions/postPrefResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "552": {
+            "description": "Resource Not Authorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "553": {
+            "description": "Resource Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "1_FseAPMsLh": []
+          },
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/accounts/{MID}/{ID}/address": {
+      "put": {
+        "summary": "Update Addresses",
+        "description": "This API is used to update Addresses",
+        "x-code-samples": [
+          {
+            "lang": "Javascript",
+            "source": "cut for brevity"
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "MID",
+            "in": "path",
+            "description": "Merchant ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "ID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "updateAddress",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/updateAddress"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfull",
+            "schema": {
+              "$ref": "#/definitions/postAddressResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "552": {
+            "description": "Resource Not Authorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "553": {
+            "description": "Resource Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "1_FseAPMsLh": []
+          },
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/customers/{MID}": {
+      "get": {
+        "summary": "Get Customers",
+        "description": "This API is used to Get Customers",
+        "x-code-samples": [
+          {
+            "lang": "Javascript",
+            "source": "cut for brevity"
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "MID",
+            "in": "path",
+            "description": "Merchant ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "description": "Transaction Id",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of Items To Get",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Name of the column To be sorted",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Contains start_date & end_date, name , email , phone",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "name",
+              "email",
+              "phone",
+              "start_date",
+              "end_date",
+              "customer_ids"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfull",
+            "schema": {
+              "$ref": "#/definitions/getCustomers"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "552": {
+            "description": "Resource Not Authorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "553": {
+            "description": "Resource Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "1_FseAPMsLh": []
+          },
+          {
+            "api_key": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "Adding Customers",
+        "description": "This API is used to Add Customers",
+        "x-code-samples": [
+          {
+            "lang": "Javascript",
+            "source": "cut for brevity"
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "MID",
+            "in": "path",
+            "description": "Merchant ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "postCustomer",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/postCustomer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfull",
+            "schema": {
+              "$ref": "#/definitions/SuccessResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "552": {
+            "description": "Resource Not Authorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "553": {
+            "description": "Resource Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "1_FseAPMsLh": []
+          },
+          {
+            "api_key": []
+          }
+        ]
+      },
+      "put": {
+        "summary": "Updating Customers",
+        "description": "This API is used to Update Customers",
+        "x-code-samples": [
+          {
+            "lang": "Javascript",
+            "source": "cut for brevity"
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "MID",
+            "in": "path",
+            "description": "Merchant ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "putCustomer",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/putCustomer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfull",
+            "schema": {
+              "$ref": "#/definitions/SuccessResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "552": {
+            "description": "Resource Not Authorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "553": {
+            "description": "Resource Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "1_FseAPMsLh": []
+          },
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/customers/{MID}/address": {
+      "post": {
+        "summary": "Adding Customers Addresses",
+        "description": "This API is used to Add Customers Address",
+        "x-code-samples": [
+          {
+            "lang": "Javascript",
+            "source": "cut for brevity"
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "MID",
+            "in": "path",
+            "description": "Merchant ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "postCustomerAddress",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/postCustomerAddress"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfull",
+            "schema": {
+              "$ref": "#/definitions/SuccessResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "552": {
+            "description": "Resource Not Authorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "553": {
+            "description": "Resource Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "1_FseAPMsLh": []
+          },
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/customers/{MID}/{ID}": {
+      "get": {
+        "summary": "Get Customers",
+        "description": "This API is used to Get Customers ",
+        "x-code-samples": [
+          {
+            "lang": "Javascript",
+            "source": "cut for brevity"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "MID",
+            "in": "path",
+            "description": "Merchant ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "ID",
+            "in": "path",
+            "description": "Customer ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "expand value can be msgs or Transaction",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "msgs",
+              "transaction"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfull",
+            "schema": {
+              "$ref": "#/definitions/getCustomer"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "552": {
+            "description": "Resource Not Authorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "553": {
+            "description": "Resource Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "1_FseAPMsLh": []
+          },
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/customers/{MID}/{ID}/address": {
+      "put": {
+        "summary": "Updating Customers Addresses",
+        "description": "This API is used to Update Customers Address",
+        "x-code-samples": [
+          {
+            "lang": "Javascript",
+            "source": "cut for brevity"
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "MID",
+            "in": "path",
+            "description": "Merchant ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "ID",
+            "in": "path",
+            "description": "ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "putCustomerAddress",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/putCustomerAddress"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfull",
+            "schema": {
+              "$ref": "#/definitions/SuccessResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "552": {
+            "description": "Resource Not Authorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "553": {
+            "description": "Resource Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "1_FseAPMsLh": []
+          },
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/msgs/{MID}": {
+      "get": {
+        "summary": "Get Messages By MID",
+        "x-code-samples": [
+          {
+            "lang": "Javascript",
+            "source": "cut for brevity"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "start",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "MessageID"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "Number of items to get"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "Column To be sorted"
+          },
+          {
+            "name": "MID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Merchant ID"
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "start_date",
+              "end_date"
+            ]
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfull",
+            "schema": {
+              "$ref": "#/definitions/getMessagesByMID"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "552": {
+            "description": "Resource Not Authorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "553": {
+            "description": "Resource Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "1_FseAPMsLh": []
+          },
+          {
+            "api_key": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "Adding Messages",
+        "description": "This API is used to Add Messages",
+        "x-code-samples": [
+          {
+            "lang": "Javascript",
+            "source": "cut for brevity"
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "MID",
+            "in": "path",
+            "description": "Merchant ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "postMessage",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/postMessage"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfull",
+            "schema": {
+              "$ref": "#/definitions/SuccessResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "552": {
+            "description": "Resource Not Authorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "553": {
+            "description": "Resource Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "1_FseAPMsLh": []
+          },
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/msgs/{MID}/{CUSTOMER_ID}": {
+      "get": {
+        "summary": "Get Messages",
+        "description": "This API is used to Get Messages ",
+        "x-code-samples": [
+          {
+            "lang": "Javascript",
+            "source": "cut for brevity"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "start",
+            "in": "query",
+            "description": "Transaction Id",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of Items To Get",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Name of the column To be sorted",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "CUSTOMER_ID",
+            "in": "path",
+            "description": "Customer ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "MID",
+            "in": "path",
+            "description": "Merchant ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Contains start_date & end_date",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfull",
+            "schema": {
+              "$ref": "#/definitions/getMessageByCustomerID"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "552": {
+            "description": "Resource Not Authorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "553": {
+            "description": "Resource Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "1_FseAPMsLh": []
+          },
+          {
+            "api_key": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "Adding Customer Messages",
+        "description": "This API is used to Add Customer Messages",
+        "x-code-samples": [
+          {
+            "lang": "Javascript",
+            "source": "cut for brevity"
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "MID",
+            "in": "path",
+            "description": "Merchant ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "CUSTOMER_ID",
+            "in": "path",
+            "description": "Customer ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "postCustomerMessage",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/postCustomerMessage"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfull",
+            "schema": {
+              "$ref": "#/definitions/SuccessResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "552": {
+            "description": "Resource Not Authorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "553": {
+            "description": "Resource Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "1_FseAPMsLh": []
+          },
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/msgs/{MID}/{CUSTOMER_ID}/{MESSAGE_ID}": {
+      "put": {
+        "summary": "Update Customer Messages",
+        "description": "This API is used to Update Customer Messages",
+        "x-code-samples": [
+          {
+            "lang": "Javascript",
+            "source": "cut for brevity"
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "MESSAGE_ID",
+            "in": "path",
+            "description": "Message ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "MID",
+            "in": "path",
+            "description": "Merchant ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "CUSTOMER_ID",
+            "in": "path",
+            "description": "Customer ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "putCustomerMessage",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/putCustomerMessage"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfull",
+            "schema": {
+              "$ref": "#/definitions/SuccessResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "552": {
+            "description": "Resource Not Authorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "553": {
+            "description": "Resource Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "1_FseAPMsLh": []
+          },
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/shortcode/{MID}": {
+      "get": {
+        "summary": "Get ShortUrl",
+        "description": "This API is used to get data from ShortUrl",
+        "x-code-samples": [
+          {
+            "lang":"python",
+            "source": "import requests \n\nurl = 'https://nfx91gwf2h.execute-api.us-east-1.amazonaws.com/test/shortcode/{MID}' \n\nheaders = {'x-api-key': api-key ,'Content-Type': 'application/json','Authorization': 1_FseAPMsLh } \n\nresponse = requests.get(url, headers=headers)"
+          },
+          {
+            "lang": "Java",
+            "source": "import com.google.api.client.http.HttpRequest; \nimport com.google.api.client.http.HttpResponse;\n\nHttpResponse response = HttpRequest\n\t.create(new URI('https://nfx91gwf2h.execute-api.us-east-1.amazonaws.com/test/shortcode/{MID}'))\n \t.headers('x-api-key','your api key','Content-Type','application/json','Authorization','your access token')\n\t.GET()\n\t.response();"
+          },
+          {
+            "lang": "C#",
+            "source": "const string WEBSERVICE_URL = 'https://nfx91gwf2h.execute-api.us-east-1.amazonaws.com/test/shortcode/{MID}';\ntry{ \n  var webRequest = System.Net.WebRequest.Create(WEBSERVICE_URL);\n\nif (webRequest != null){\n  webRequest.Method = 'GET';\n  webRequest.Timeout = 12000;\n  webRequest.ContentType = 'application/json';\n  webRequest.Headers.Add('x-api-key','your api key','Authorization','your access token');\n\nusing(System.IO.Stream s = webRequest.GetResponse().GetResponseStream()){\n\n  using (System.IO.StreamReader sr = new System.IO.StreamReader(s)){ \n\n  var jsonResponse = sr.ReadToEnd();\n  Console.WriteLine(String.Format('Response: {0}', jsonResponse));\n    }\n   }\n  }\n}\n\ncatch (Exception ex)\n {Console.WriteLine(ex.ToString());} "
+          },
+          {
+            "lang": "Ruby",
+            "source": "require 'httparty' \n\nurl = 'https://nfx91gwf2h.execute-api.us-east-1.amazonaws.com/test/shortcode/{MID}' \n\nheaders = {x-api-key: api-key ,Content-Type: 'application/json',Authorization: 1_FseAPMsLh } \n\nresponse = HTTParty.get(url, headers: headers) \nputs response.body"
+          },
+          {
+            "lang": "PHP",
+            "source": "<?php \n$options = array(\n'http'=>array(\n'method'=>'GET',\n'header'=>'x-api-key: api-key' , \n\t'Content-Type: application/json' , \n\t'Authorisation: your_access_token' \n ) \n ); \n\n$context=stream_context_create($options); \n\n$data = file_get_contents('https://nfx91gwf2h.execute-api.us-east-1.amazonaws.com/test/shortcode/{MID}',false,$context); \n?>"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "MID",
+            "in": "path",
+            "description": "Merchant ID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfull",
+            "schema": {
+              "$ref": "#/definitions/getShortUrl"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "552": {
+            "description": "Resource Not Authorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "553": {
+            "description": "Resource Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "Ading Data to Short URL",
+        "description": "This API is used to Add Data to Short URL Table",
+        "x-code-samples": [
+          {
+            "lang": "Javascript",
+            "source": "cut for brevity"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "MID",
+            "in": "path",
+            "description": "Merchant ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfull",
+            "schema": {
+              "$ref": "#/definitions/postShortUrl"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "552": {
+            "description": "Resource Not Authorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "553": {
+            "description": "Resource Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "1_FseAPMsLh": []
+          },
+          {
+            "api_key": []
+          }
+        ]
+      },
+      "put": {
+        "summary": "Updatin Data of Short URL",
+        "description": "This API is used to update Data of Short URL Table",
+        "x-code-samples": [
+          {
+            "lang": "Javascript",
+            "source": "cut for brevity"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "MID",
+            "in": "path",
+            "description": "Merchant ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfull",
+            "schema": {
+              "$ref": "#/definitions/putShortUrl"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "552": {
+            "description": "Resource Not Authorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "553": {
+            "description": "Resource Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "1_FseAPMsLh": []
+          },
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/trans/{MID}": {
+      "get": {
+        "summary": "Getting Transaction",
+        "description": "This API is used to Get Transaction",
+        "x-code-samples": [
+          {
+            "lang": "Javascript",
+            "source": "cut for brevity"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "start",
+            "in": "query",
+            "description": "Transaction Id",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of Items To Get",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Name of the column To be sorted",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "MID",
+            "in": "path",
+            "description": "Merchant ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Contains start_date & end_date",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfull",
+            "schema": {
+              "$ref": "#/definitions/getTransactionByMID"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "552": {
+            "description": "Resource Not Authorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "553": {
+            "description": "Resource Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "1_FseAPMsLh": []
+          },
+          {
+            "api_key": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "Adding Transaction",
+        "description": "This API is used to Add Transaction",
+        "x-code-samples": [
+          {
+            "lang": "Javascript",
+            "source": "cut for brevity"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "MID",
+            "in": "path",
+            "description": "Merchant ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfull",
+            "schema": {
+              "$ref": "#/definitions/postTransaction"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "552": {
+            "description": "Resource Not Authorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "553": {
+            "description": "Resource Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "1_FseAPMsLh": []
+          },
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/trans/{MID}/customer/{CUSTOMER_ID}": {
+      "get": {
+        "summary": "Get Transactions By Customer",
+        "description": "This API is used get Transactions by customer",
+        "x-code-samples": [
+          {
+            "lang": "Javascript",
+            "source": "cut for brevity"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "start",
+            "in": "query",
+            "description": "Transaction Id",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of Items To Get",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Name of the column To be sorted",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "MID",
+            "in": "path",
+            "description": "Merchant ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "CUSTOMER_ID",
+            "in": "path",
+            "description": "Customer ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Contains start_date & end_date",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfull",
+            "schema": {
+              "$ref": "#/definitions/getTransactionByCustomer"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "552": {
+            "description": "Resource Not Authorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "553": {
+            "description": "Resource Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "1_FseAPMsLh": []
+          },
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/trans/{MID}/invoice/{INVOICE}": {
+      "get": {
+        "summary": "Get Transactions By Invoice",
+        "description": "This API is used get Transactions by invoice",
+        "x-code-samples": [
+          {
+            "lang": "Javascript",
+            "source": "cut for brevity"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "MID",
+            "in": "path",
+            "description": "Merchant ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "INVOICE",
+            "in": "path",
+            "description": "INVOICE",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfull",
+            "schema": {
+              "$ref": "#/definitions/getTransactionByInvoice"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "552": {
+            "description": "Resource Not Authorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "553": {
+            "description": "Resource Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "1_FseAPMsLh": []
+          },
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/trans/{MID}/transaction/{TRANSACTION_ID}": {
+      "get": {
+        "summary": "Get Transactions",
+        "description": "This API is used get Transactions",
+        "x-code-samples": [
+          {
+            "lang": "Javascript",
+            "source": "cut for brevity"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "MID",
+            "in": "path",
+            "description": "Merchant ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "TRANSACTION_ID",
+            "in": "path",
+            "description": "Transaction ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfull",
+            "schema": {
+              "$ref": "#/definitions/getTransaction"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "552": {
+            "description": "Resource Not Authorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "553": {
+            "description": "Resource Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "1_FseAPMsLh": []
+          },
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/trans/{MID}/{TRANSACTION_ID}": {
+      "put": {
+        "summary": "Adding Transaction",
+        "description": "This API is used to Add Transaction",
+        "x-code-samples": [
+          {
+            "lang": "Javascript",
+            "source": "cut for brevity"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "MID",
+            "in": "path",
+            "description": "Merchant ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "TRANSACTION_ID",
+            "in": "path",
+            "description": "Transaction ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfull",
+            "schema": {
+              "$ref": "#/definitions/putTransaction"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "552": {
+            "description": "Resource Not Authorized",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "553": {
+            "description": "Resource Not Found",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "1_FseAPMsLh": []
+          },
+          {
+            "api_key": []
+          }
+        ]
+      }
+    }
+  },
+  "securityDefinitions": {
+    "api_key": {
+      "type": "apiKey",
+      "name": "x-api-key",
+      "in": "header"
+    },
+    "1_FseAPMsLh": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header",
+      "x-amazon-apigateway-authtype": "cognito_user_pools"
+    }
+  },
+  "definitions": {
+    "postShortUrl": {
+      "type": "object",
+      "properties": {
+        "STATUS": {
+          "type": "string",
+          "enum": [
+            "ACTIVE",
+            "INACTIVE",
+            "DELETED"
+          ]
+        },
+        "VISITS": {
+          "type": "string"
+        },
+        "Transaction": {
+          "type": "object",
+          "properties": {
+            "TR_TYPE": {
+              "type": "string"
+            },
+            "AUTH_TOKEN": {
+              "type": "string"
+            },
+            "STATUS": {
+              "type": "string",
+              "enum": [
+                "ACTIVE",
+                "INACTIVE",
+                "DELETED"
+              ]
+            },
+            "AMOUNT": {
+              "type": "string"
+            },
+            "CREATED_DATE": {
+              "type": "string"
+            },
+            "LAST_UPDATED": {
+              "type": "string"
+            },
+            "CUSTOMER_ID": {
+              "type": "string"
+            },
+            "MID": {
+              "type": "string"
+            },
+            "STATE": {
+              "type": "string",
+              "enum": [
+                "PROD",
+                "TEST"
+              ]
+            },
+            "ID": {
+              "type": "string"
+            },
+            "CAPTURE_TOKEN": {
+              "type": "string"
+            },
+            "TR_DATE_TIME": {
+              "type": "string"
+            }
+          }
+        },
+        "CREATED_DATE": {
+          "type": "string"
+        },
+        "LAST_UPDATED": {
+          "type": "string"
+        },
+        "MID": {
+          "type": "string"
+        },
+        "SHORT_CODE": {
+          "type": "string"
+        },
+        "URL": {
+          "type": "string"
+        }
+      },
+      "description": "This is a model contains  details for Adding Data in shortUrl table"
+    },
+    "postCustomer": {
+      "type": "object",
+      "properties": {
+        "STATUS": {
+          "type": "string"
+        },
+        "CREATED_DATE": {
+          "type": "string"
+        },
+        "DOB": {
+          "type": "string"
+        },
+        "LAST_UPDATED": {
+          "type": "string"
+        },
+        "MID": {
+          "type": "string"
+        },
+        "LAST_NAME": {
+          "type": "string"
+        },
+        "FIRST_NAME": {
+          "type": "string"
+        }
+      },
+      "description": "This is a model contains  details for Adding Customer"
+    },
+    "updatePreferences": {
+      "type": "object",
+      "properties": {
+        "PREFERENCE": {
+          "type": "object",
+          "properties": {
+            "MSG_TEMPLATE": {
+              "type": "string"
+            },
+            "STATUS": {
+              "type": "string",
+              "enum": [
+                "ACTIVE",
+                "INACTIVE",
+                "DELETED"
+              ]
+            },
+            "CREATED_DATE": {
+              "type": "string"
+            },
+            "LAST_UPDATED": {
+              "type": "string"
+            },
+            "AUTO_SEND": {
+              "type": "string",
+              "enum": [
+                "TRUE",
+                "FALSE"
+              ]
+            },
+            "PAYMENT_EMAIL": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "description": "This is a model to add update Preferences"
+    },
+    "addMerchantAccount": {
+      "type": "object",
+      "properties": {
+        "DESCRIPTION": {
+          "type": "string"
+        },
+        "CREATED_DATE": {
+          "type": "string"
+        },
+        "LAST_UPDATED": {
+          "type": "string"
+        },
+        "NAME": {
+          "type": "string"
+        }
+      },
+      "description": "This is a model to add AddMerchantAccounts"
+    },
+    "getTransactionByInvoice": {
+      "type": "object",
+      "properties": {
+        "TR_TYPE": {
+          "type": "string"
+        },
+        "AUTH_TOKEN": {
+          "type": "string"
+        },
+        "STATUS": {
+          "type": "string",
+          "enum": [
+            "ACTIVE",
+            "INACTIVE",
+            "DELETED"
+          ]
+        },
+        "AMOUNT": {
+          "type": "string"
+        },
+        "CREATED_DATE": {
+          "type": "string"
+        },
+        "LAST_UPDATED": {
+          "type": "string"
+        },
+        "CUSTOMER_ID": {
+          "type": "string"
+        },
+        "MID": {
+          "type": "string"
+        },
+        "STATE": {
+          "type": "string",
+          "enum": [
+            "PROD",
+            "TEST"
+          ]
+        },
+        "ID": {
+          "type": "string"
+        },
+        "CAPTURE_TOKEN": {
+          "type": "string"
+        },
+        "TR_DATE_TIME": {
+          "type": "string"
+        }
+      },
+      "description": "This is a model contains  details for Getting Data frm Transaction table"
+    },
+    "updateAddress": {
+      "type": "object",
+      "properties": {
+        "ZIP": {
+          "type": "number"
+        },
+        "STATUS": {
+          "type": "string",
+          "enum": [
+            "ACTIVE",
+            "INACTIVE",
+            "DELETED"
+          ]
+        },
+        "CITY": {
+          "type": "string"
+        },
+        "WEB": {
+          "type": "string"
+        },
+        "LAST_UPDATED": {
+          "type": "string"
+        },
+        "PHONE": {
+          "type": "string"
+        },
+        "STATE": {
+          "type": "string"
+        },
+        "ADDRESS1": {
+          "type": "string"
+        },
+        "EMAIL": {
+          "type": "string"
+        },
+        "TYPE": {
+          "type": "string"
+        },
+        "ADDRESS2": {
+          "type": "string"
+        }
+      },
+      "description": "This is a model contains  details for Update Address"
+    },
+    "postAddressResponse": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      },
+      "description": "This is a model contains Response details for POST Address"
+    },
+    "getMessageByCustomerID": {
+      "type": "object",
+      "properties": {
+        "MESSAGE": {
+          "type": "string"
+        },
+        "STATUS": {
+          "type": "string",
+          "enum": [
+            "ACTIVE",
+            "INACTIVE",
+            "DELETED"
+          ]
+        },
+        "CREATED_DATE": {
+          "type": "string"
+        },
+        "LAST_UPDATED": {
+          "type": "string"
+        },
+        "MID": {
+          "type": "string"
+        },
+        "ID": {
+          "type": "string"
+        },
+        "FILES": {
+          "type": "string"
+        }
+      },
+      "description": "This is a model contains  details for Getting Data from Message table according to query params"
+    },
+    "addMerchantAddress": {
+      "type": "object",
+      "properties": {
+        "ZIP": {
+          "type": "number"
+        },
+        "STATUS": {
+          "type": "string",
+          "enum": [
+            "ACTIVE",
+            "INACTIVE",
+            "DELETED"
+          ]
+        },
+        "CITY": {
+          "type": "string"
+        },
+        "WEB": {
+          "type": "string"
+        },
+        "CREATED_DATE": {
+          "type": "string"
+        },
+        "LAST_UPDATED": {
+          "type": "string"
+        },
+        "PHONE": {
+          "type": "string"
+        },
+        "STATE": {
+          "type": "string"
+        },
+        "ADDRESS1": {
+          "type": "string"
+        },
+        "EMAIL": {
+          "type": "string"
+        },
+        "TYPE": {
+          "type": "string"
+        },
+        "ADDRESS2": {
+          "type": "string"
+        }
+      },
+      "description": "This is a model contains  details for POST Address"
+    },
+    "postTransaction": {
+      "type": "object",
+      "properties": {
+        "STATUS": {
+          "type": "string",
+          "enum": [
+            "ACTIVE",
+            "INACTIVE",
+            "DELETED"
+          ]
+        },
+        "VISITS": {
+          "type": "string"
+        },
+        "Transaction": {
+          "type": "object",
+          "properties": {
+            "TR_TYPE": {
+              "type": "string",
+              "enum": [
+                "SALE",
+                "AUTH",
+                "PRIOR",
+                "REFUND",
+                "PSEUDO",
+                "ERROR",
+                "VOID",
+                "TEST"
+              ]
+            },
+            "AUTH_TOKEN": {
+              "type": "string"
+            },
+            "STATUS": {
+              "type": "string",
+              "enum": [
+                "ACTIVE",
+                "INACTIVE",
+                "DELETED"
+              ]
+            },
+            "AMOUNT": {
+              "type": "string"
+            },
+            "CREATED_DATE": {
+              "type": "string"
+            },
+            "LAST_UPDATED": {
+              "type": "string"
+            },
+            "CUSTOMER_ID": {
+              "type": "string"
+            },
+            "MID": {
+              "type": "string"
+            },
+            "STATE": {
+              "type": "string",
+              "enum": [
+                "PROD",
+                "TEST"
+              ]
+            },
+            "ID": {
+              "type": "string"
+            },
+            "CAPTURE_TOKEN": {
+              "type": "string"
+            },
+            "TR_DATE_TIME": {
+              "type": "string"
+            }
+          }
+        },
+        "CREATED_DATE": {
+          "type": "string"
+        },
+        "LAST_UPDATED": {
+          "type": "string"
+        },
+        "MID": {
+          "type": "string"
+        },
+        "SHORT_CODE": {
+          "type": "string"
+        },
+        "URL": {
+          "type": "string"
+        }
+      },
+      "description": "This is a model contains  details for Adding Data in Transaction table"
+    },
+    "putCustomer": {
+      "type": "object",
+      "properties": {
+        "STATUS": {
+          "type": "string"
+        },
+        "DOB": {
+          "type": "string"
+        },
+        "LAST_UPDATED": {
+          "type": "string"
+        },
+        "LAST_NAME": {
+          "type": "string"
+        },
+        "FIRST_NAME": {
+          "type": "string"
+        }
+      },
+      "description": "This is a model contains  details for Updating Customer"
+    },
+    "getShortUrl": {
+      "type": "object",
+      "properties": {
+        "SHORT_CODE": {
+          "type": "string"
+        },
+        "URL": {
+          "type": "string"
+        },
+        "VISITS": {
+          "type": "string"
+        },
+        "MID": {
+          "type": "string"
+        },
+        "STATUS": {
+          "type": "string",
+          "enum": [
+            "ACTIVE",
+            "INACTIVE",
+            "DELETED"
+          ]
+        },
+        "CREATED_DATE": {
+          "type": "string"
+        },
+        "LAST_UPDATED": {
+          "type": "string"
+        }
+      },
+      "description": "This model contains details response for shortURl"
+    },
+    "putCustomerAddress": {
+      "type": "object",
+      "properties": {
+        "ZIP": {
+          "type": "number"
+        },
+        "STATUS": {
+          "type": "string",
+          "enum": [
+            "ACTIVE",
+            "INACTIVE",
+            "DELETED"
+          ]
+        },
+        "CITY": {
+          "type": "string"
+        },
+        "WEB": {
+          "type": "string"
+        },
+        "LAST_UPDATED": {
+          "type": "string"
+        },
+        "PHONE": {
+          "type": "string"
+        },
+        "STATE": {
+          "type": "string"
+        },
+        "ADDRESS1": {
+          "type": "string"
+        },
+        "EMAIL": {
+          "type": "string"
+        },
+        "TYPE": {
+          "type": "string",
+          "enum": [
+            "BUSINESS",
+            "BUSINESS_CONTACT",
+            "CUSTOMER"
+          ]
+        },
+        "ADDRESS2": {
+          "type": "string"
+        }
+      },
+      "description": "This is a model contains  details for Adding Customer Address"
+    },
+    "putShortUrl": {
+      "type": "object",
+      "properties": {
+        "VISITS": {
+          "type": "number"
+        },
+        "LAST_UPDATED": {
+          "type": "string"
+        }
+      },
+      "description": "This is a model contains  details for Updating Data in shortUrl table"
+    },
+    "addMerchantPreferences": {
+      "type": "object",
+      "properties": {
+        "PREFERENCE": {
+          "type": "object",
+          "properties": {
+            "MSG_TEMPLATE": {
+              "type": "string"
+            },
+            "STATUS": {
+              "type": "string",
+              "enum": [
+                "ACTIVE",
+                "INACTIVE",
+                "DELETED"
+              ]
+            },
+            "CREATED_DATE": {
+              "type": "string"
+            },
+            "LAST_UPDATED": {
+              "type": "string"
+            },
+            "AUTO_SEND": {
+              "type": "string",
+              "enum": [
+                "TRUE",
+                "FALSE"
+              ]
+            },
+            "PAYMENT_EMAIL": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "description": "This is a model to add AddMerchantPreferences"
+    },
+    "postMessage": {
+      "type": "object",
+      "properties": {
+        "MESSAGE": {
+          "type": "string"
+        },
+        "STATUS": {
+          "type": "string",
+          "enum": [
+            "ACTIVE",
+            "INACTIVE",
+            "DELETED"
+          ]
+        },
+        "CREATED_DATE": {
+          "type": "string"
+        },
+        "LAST_UPDATED": {
+          "type": "string"
+        },
+        "MID": {
+          "type": "string"
+        },
+        "ID": {
+          "type": "string"
+        },
+        "FILES": {
+          "type": "string"
+        }
+      },
+      "description": "This is a model contains  details for Adding Messages"
+    },
+    "getTransactionByCustomer": {
+      "type": "object",
+      "properties": {
+        "TR_TYPE": {
+          "type": "string"
+        },
+        "AUTH_TOKEN": {
+          "type": "string"
+        },
+        "STATUS": {
+          "type": "string",
+          "enum": [
+            "ACTIVE",
+            "INACTIVE",
+            "DELETED"
+          ]
+        },
+        "AMOUNT": {
+          "type": "string"
+        },
+        "CREATED_DATE": {
+          "type": "string"
+        },
+        "LAST_UPDATED": {
+          "type": "string"
+        },
+        "CUSTOMER_ID": {
+          "type": "string"
+        },
+        "MID": {
+          "type": "string"
+        },
+        "STATE": {
+          "type": "string",
+          "enum": [
+            "PROD",
+            "TEST"
+          ]
+        },
+        "ID": {
+          "type": "string"
+        },
+        "CAPTURE_TOKEN": {
+          "type": "string"
+        },
+        "TR_DATE_TIME": {
+          "type": "string"
+        }
+      },
+      "description": "This is a model contains  details for Getting Data frm Transaction table"
+    },
+    "postGateway": {
+      "type": "object",
+      "properties": {
+        "GATEWAY": {
+          "type": "object",
+          "properties": {
+            "STATUS": {
+              "type": "string",
+              "enum": [
+                "ACTIVE",
+                "INACTIVE",
+                "DELETED"
+              ]
+            },
+            "API_KEY": {
+              "type": "string"
+            },
+            "MID": {
+              "type": "string"
+            },
+            "STATE": {
+              "type": "string",
+              "enum": [
+                "PROD",
+                "TEST"
+              ]
+            },
+            "API_SECRET": {
+              "type": "string"
+            },
+            "MCC": {
+              "type": "string"
+            },
+            "NAME": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "description": "This is a model to add AddMerchantGateway"
+    },
+    "postPrefResponse": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      },
+      "description": "This is a model contains details for post preference response"
+    },
+    "getTransaction": {
+      "type": "object",
+      "properties": {
+        "TR_TYPE": {
+          "type": "string"
+        },
+        "AUTH_TOKEN": {
+          "type": "string"
+        },
+        "STATUS": {
+          "type": "string",
+          "enum": [
+            "ACTIVE",
+            "INACTIVE",
+            "DELETED"
+          ]
+        },
+        "AMOUNT": {
+          "type": "string"
+        },
+        "CREATED_DATE": {
+          "type": "string"
+        },
+        "LAST_UPDATED": {
+          "type": "string"
+        },
+        "CUSTOMER_ID": {
+          "type": "string"
+        },
+        "MID": {
+          "type": "string"
+        },
+        "STATE": {
+          "type": "string",
+          "enum": [
+            "PROD",
+            "TEST"
+          ]
+        },
+        "ID": {
+          "type": "string"
+        },
+        "CAPTURE_TOKEN": {
+          "type": "string"
+        },
+        "TR_DATE_TIME": {
+          "type": "string"
+        }
+      },
+      "description": "This is a model contains  details for Getting Data frm Transaction table"
+    },
+    "SuccessResponse": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "description": "Successfull"
+        }
+      },
+      "description": "This is a model contains  details for Successfull Response"
+    },
+    "getMessagesByMID": {
+      "type": "object",
+      "properties": {
+        "MESSAGE": {
+          "type": "string"
+        },
+        "STATUS": {
+          "type": "string",
+          "enum": [
+            "ACTIVE",
+            "INACTIVE",
+            "DELETED"
+          ]
+        },
+        "CREATED_DATE": {
+          "type": "string"
+        },
+        "LAST_UPDATED": {
+          "type": "string"
+        },
+        "MID": {
+          "type": "string"
+        },
+        "ID": {
+          "type": "string"
+        },
+        "FILES": {
+          "type": "string"
+        }
+      },
+      "description": "This is a model contains  details for Getting Data from Message table according to query params"
+    },
+    "getTransactionByPref": {
+      "type": "object",
+      "properties": {
+        "TR_TYPE": {
+          "type": "string"
+        },
+        "AUTH_TOKEN": {
+          "type": "string"
+        },
+        "STATUS": {
+          "type": "string",
+          "enum": [
+            "ACTIVE",
+            "INACTIVE",
+            "DELETED"
+          ]
+        },
+        "AMOUNT": {
+          "type": "string"
+        },
+        "CREATED_DATE": {
+          "type": "string"
+        },
+        "LAST_UPDATED": {
+          "type": "string"
+        },
+        "CUSTOMER_ID": {
+          "type": "string"
+        },
+        "MID": {
+          "type": "string"
+        },
+        "STATE": {
+          "type": "string",
+          "enum": [
+            "PROD",
+            "TEST"
+          ]
+        },
+        "ID": {
+          "type": "string"
+        },
+        "CAPTURE_TOKEN": {
+          "type": "string"
+        },
+        "TR_DATE_TIME": {
+          "type": "string"
+        }
+      }
+    },
+    "postCustomerMessage": {
+      "type": "object",
+      "properties": {
+        "MESSAGE": {
+          "type": "string"
+        },
+        "STATUS": {
+          "type": "string",
+          "enum": [
+            "ACTIVE",
+            "INACTIVE",
+            "DELETED"
+          ]
+        },
+        "CREATED_DATE": {
+          "type": "string"
+        },
+        "LAST_UPDATED": {
+          "type": "string"
+        },
+        "CUSTOMER_ID": {
+          "type": "string"
+        },
+        "MID": {
+          "type": "string"
+        },
+        "FILES": {
+          "type": "string"
+        }
+      },
+      "description": "This is a model contains  details for Adding Customer Messages"
+    },
+    "postCustomerAddress": {
+      "type": "object",
+      "properties": {
+        "ZIP": {
+          "type": "number"
+        },
+        "CREATED_DATE": {
+          "type": "string"
+        },
+        "LAST_UPDATED": {
+          "type": "string"
+        },
+        "PHONE": {
+          "type": "string"
+        },
+        "STATE": {
+          "type": "string"
+        },
+        "EMAIL": {
+          "type": "string"
+        },
+        "TID": {
+          "type": "string"
+        },
+        "STATUS": {
+          "type": "string",
+          "enum": [
+            "ACTIVE",
+            "INACTIVE",
+            "DELETED"
+          ]
+        },
+        "CITY": {
+          "type": "string"
+        },
+        "WEB": {
+          "type": "string"
+        },
+        "ADDRESS1": {
+          "type": "string"
+        },
+        "TYPE": {
+          "type": "string",
+          "enum": [
+            "BUSINESS",
+            "BUSINESS_CONTACT",
+            "CUSTOMER"
+          ]
+        },
+        "ADDRESS2": {
+          "type": "string"
+        }
+      },
+      "description": "This is a model contains  details for Adding Customer Address"
+    },
+    "getAccounts": {
+      "type": "object",
+      "properties": {
+        "GATEWAY": {
+          "type": "object",
+          "properties": {
+            "STATUS": {
+              "type": "string",
+              "enum": [
+                "ACTIVE",
+                "INACTIVE",
+                "DELETED"
+              ]
+            },
+            "CREATED_DATE": {
+              "type": "string"
+            },
+            "LAST_UPDATED": {
+              "type": "string"
+            },
+            "MID": {
+              "type": "string"
+            },
+            "STATE": {
+              "type": "string",
+              "enum": [
+                "PROD",
+                "TEST"
+              ]
+            },
+            "API_SECRET": {
+              "type": "string"
+            },
+            "MCC": {
+              "type": "string"
+            },
+            "NAME": {
+              "type": "string"
+            }
+          }
+        },
+        "STATUS": {
+          "type": "string",
+          "enum": [
+            "ACTIVE",
+            "INACTIVE",
+            "DELETED"
+          ]
+        },
+        "DESCRIPTION": {
+          "type": "string"
+        },
+        "CREATED_DATE": {
+          "type": "string"
+        },
+        "LAST_UPDATED": {
+          "type": "string"
+        },
+        "ID": {
+          "type": "string"
+        },
+        "PREFERENCE": {
+          "type": "object",
+          "properties": {
+            "MSG_TEMPLATE": {
+              "type": "string"
+            },
+            "STATUS": {
+              "type": "string",
+              "enum": [
+                "ACTIVE",
+                "INACTIVE",
+                "DELETED"
+              ]
+            },
+            "CREATED_DATE": {
+              "type": "string"
+            },
+            "LAST_UPDATED": {
+              "type": "string"
+            },
+            "AUTO_SEND": {
+              "type": "string",
+              "enum": [
+                "TRUE",
+                "FALSE"
+              ]
+            },
+            "PAYMENT_EMAIL": {
+              "type": "string"
+            }
+          }
+        },
+        "NAME": {
+          "type": "string"
+        }
+      },
+      "description": "This is a model to Get Accounts "
+    },
+    "ErrorResponse": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      },
+      "description": "This is a model to show error response"
+    },
+    "getCustomer": {
+      "type": "object",
+      "properties": {
+        "TR_TYPE": {
+          "type": "string"
+        },
+        "AUTH_TOKEN": {
+          "type": "string"
+        },
+        "CREATED_DATE": {
+          "type": "string"
+        },
+        "LAST_UPDATED": {
+          "type": "string"
+        },
+        "CUSTOMER_ID": {
+          "type": "string"
+        },
+        "MID": {
+          "type": "string"
+        },
+        "STATE": {
+          "type": "string",
+          "enum": [
+            "PROD",
+            "TEST"
+          ]
+        },
+        "TR_DATE_TIME": {
+          "type": "string"
+        },
+        "STATUS": {
+          "type": "string",
+          "enum": [
+            "ACTIVE",
+            "INACTIVE",
+            "DELETED"
+          ]
+        },
+        "Transaction": {
+          "type": "object",
+          "properties": {
+            "MESSAGE": {
+              "type": "string"
+            },
+            "STATUS": {
+              "type": "string",
+              "enum": [
+                "ACTIVE",
+                "INACTIVE",
+                "DELETED"
+              ]
+            },
+            "CREATED_DATE": {
+              "type": "string"
+            },
+            "LAST_UPDATED": {
+              "type": "string"
+            },
+            "MID": {
+              "type": "string"
+            },
+            "ID": {
+              "type": "string"
+            },
+            "FILES": {
+              "type": "string"
+            }
+          }
+        },
+        "AMOUNT": {
+          "type": "string"
+        },
+        "ID": {
+          "type": "string"
+        },
+        "CAPTURE_TOKEN": {
+          "type": "string"
+        }
+      },
+      "description": "This is a model contains  details for Getting Data from Message/Transaction table according to query params"
+    },
+    "putCustomerMessage": {
+      "type": "object",
+      "properties": {
+        "MESSAGE": {
+          "type": "string"
+        },
+        "STATUS": {
+          "type": "string",
+          "enum": [
+            "ACTIVE",
+            "INACTIVE",
+            "DELETED"
+          ]
+        },
+        "LAST_UPDATED": {
+          "type": "string"
+        },
+        "CUSTOMER_ID": {
+          "type": "string"
+        },
+        "MID": {
+          "type": "string"
+        },
+        "FILES": {
+          "type": "string"
+        }
+      },
+      "description": "This is a model contains  details for Updating Customer Messages"
+    },
+    "getTransactionByMID": {
+      "type": "object",
+      "properties": {
+        "TR_TYPE": {
+          "type": "string"
+        },
+        "AUTH_TOKEN": {
+          "type": "string"
+        },
+        "STATUS": {
+          "type": "string",
+          "enum": [
+            "ACTIVE",
+            "INACTIVE",
+            "DELETED"
+          ]
+        },
+        "AMOUNT": {
+          "type": "string"
+        },
+        "CREATED_DATE": {
+          "type": "string"
+        },
+        "LAST_UPDATED": {
+          "type": "string"
+        },
+        "CUSTOMER_ID": {
+          "type": "string"
+        },
+        "MID": {
+          "type": "string"
+        },
+        "STATE": {
+          "type": "string",
+          "enum": [
+            "PROD",
+            "TEST"
+          ]
+        },
+        "ID": {
+          "type": "string"
+        },
+        "CAPTURE_TOKEN": {
+          "type": "string"
+        },
+        "TR_DATE_TIME": {
+          "type": "string"
+        }
+      },
+      "description": "This is a model contains  details for Getting Data from Transaction table according to query params"
+    },
+    "updateGateway": {
+      "type": "object",
+      "properties": {
+        "GATEWAY": {
+          "type": "object",
+          "properties": {
+            "STATUS": {
+              "type": "string",
+              "enum": [
+                "ACTIVE",
+                "INACTIVE",
+                "DELETED"
+              ]
+            },
+            "API_KEY": {
+              "type": "string"
+            },
+            "MID": {
+              "type": "string"
+            },
+            "STATE": {
+              "type": "string",
+              "enum": [
+                "PROD",
+                "TEST"
+              ]
+            },
+            "API_SECRET": {
+              "type": "string"
+            },
+            "MCC": {
+              "type": "string"
+            },
+            "NAME": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "description": "This is a model to  update Gateway"
+    },
+    "postGatewayResponse": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      },
+      "description": "This is a model contains Response details for post gateway"
+    },
+    "getCustomers": {
+      "type": "object",
+      "properties": {
+        "MID": {
+          "type": "string"
+        },
+        "FIRST_NAME": {
+          "type": "string"
+        },
+        "LAST_NAME": {
+          "type": "string"
+        },
+        "DOB": {
+          "type": "string"
+        },
+        "STATUS": {
+          "type": "string"
+        },
+        "CREATED_DATE": {
+          "type": "string"
+        },
+        "LAST_UPDATED": {
+          "type": "string"
+        }
+      }
+    },
+    "putTransaction": {
+      "type": "object",
+      "properties": {
+        "TR_TYPE": {
+          "type": "string",
+          "enum": [
+            "SALE",
+            "AUTH",
+            "PRIOR",
+            "REFUND",
+            "PSEUDO",
+            "ERROR",
+            "VOID",
+            "TEST"
+          ]
+        },
+        "AUTH_TOKEN": {
+          "type": "string"
+        },
+        "STATUS": {
+          "type": "string",
+          "enum": [
+            "ACTIVE",
+            "INACTIVE",
+            "DELETED"
+          ]
+        },
+        "CREATED_DATE": {
+          "type": "string"
+        },
+        "LAST_UPDATED": {
+          "type": "string"
+        },
+        "REQUEST_TIME": {
+          "type": "string"
+        },
+        "CAPTURE_TOKEN": {
+          "type": "string"
+        }
+      },
+      "description": "This is a model contains  details for Getting Data from Transaction table"
+    }
+  }
+}
